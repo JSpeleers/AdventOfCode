@@ -1,3 +1,7 @@
+from util.decorators import aoc_solution, aoc_timed_solution
+
+
+@aoc_solution(2023, 4, 1)
 def run_part1(filename):
     count = 0
     with open(filename) as file:
@@ -8,6 +12,7 @@ def run_part1(filename):
     return count
 
 
+@aoc_timed_solution(2023, 4, 2)
 def run_part2(filename):
     cards = [1] * sum(1 for _ in open(filename))
     with open(filename) as file:
@@ -28,7 +33,7 @@ def _add_card_matches(cards, index, number):
 
 
 if __name__ == "__main__":
-    print(f'{run_part1("example_1.txt")}')
-    print(f'{run_part1("input.txt")}')
-    print(f'{run_part2("example_1.txt")}')
-    print(f'{run_part2("input.txt")}')
+    run_part1("example_1.txt")
+    run_part1("input.txt")
+    run_part2("example_1.txt")
+    run_part2("input.txt")
