@@ -18,7 +18,7 @@ def run_part2(filename):
 
 def _get_number_of_matches(line):
     card = line.rstrip().split(':')[1].split('|')
-    return len([x for x in card[1].split(' ') if x in card[0].split(' ') and x != ''])
+    return len([x for x in card[1].split() if x in card[0].split()])
 
 
 def _add_card_matches(cards, index, number):
