@@ -2,7 +2,7 @@
 
 ### 2023
 
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=14&color=yellow)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=18&color=yellow)]()
 
 <details><summary>Stars for 2023</summary>
 <p>
@@ -16,8 +16,8 @@
 | 05 | ⭐ | ⭐ |
 | 06 | ⭐ | ⭐ |
 | 07 | ⭐ | ⭐ |
-| 08 | | |
-| 09 | | |
+| 08 | ⭐ | ⭐ |
+| 09 | ⭐ | ⭐ |
 | 10 | | |
 | 11 | | |
 | 12 | | |
