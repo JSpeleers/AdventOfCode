@@ -21,6 +21,7 @@ pipes = []
 
 
 def _read_input(filename):
+    pipes.clear()
     with open(filename) as file:
         for i, line in enumerate(file):
             line = line.rstrip()
@@ -67,22 +68,14 @@ class Pipe:
 @aoc_solution(2023, 10, 1)
 def run_part1(filename):
     start = _read_input(filename)
-    paths = [_find_path(start, orientation) for orientation in orientations]
-    return paths, int((max([x for x in paths if x is not None]) - 1) / 2)
-
-
-@aoc_solution(2023, 10, 1)
-def run_part1_v2(filename):
-    start = _read_input(filename)
     for orientation in orientations:
-        path_length = _find_path(start, orientation)
+        path_length = _count_path(start, orientation)
         if path_length is not None and path_length > 0:
             return int((path_length - 1) / 2)
+    return None
 
-    return
 
-
-def _find_path(pipe: Pipe, orientation, length=0):
+def _count_path(pipe: Pipe, orientation, length=0):
     if pipe.char == 'S' and length != 0:
         return length + 1
     if pipe.has_adj(orientation):
@@ -91,7 +84,7 @@ def _find_path(pipe: Pipe, orientation, length=0):
         adj_pipe = _find_pipe(adj_x, adj_y)
         if adj_pipe is not None and adj_pipe.has_adj(reverse_of[orientation]):
             # print(f'{adj_pipe} and next is {adj_pipe.next_orientation(reverse_of[orientation])}')
-            return _find_path(adj_pipe, adj_pipe.next_orientation(reverse_of[orientation]), length + 1)
+            return _count_path(adj_pipe, adj_pipe.next_orientation(reverse_of[orientation]), length + 1)
     return None
 
 
@@ -103,9 +96,7 @@ def _find_pipe(x, y) -> Pipe | None:
 
 
 if __name__ == "__main__":
-    sys.setrecursionlimit(1000000000)
+    sys.setrecursionlimit(100000)
     run_part1("example_1.txt")  # 4
     run_part1("example_2.txt")  # 8
-    run_part1_v2("example_1.txt")  # 4
-    run_part1_v2("example_2.txt")  # 8
-    run_part1_v2("input.txt")
+    run_part1("input.txt")
