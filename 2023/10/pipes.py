@@ -102,7 +102,6 @@ def _find_pipe(x, y) -> Pipe | None:
 
 @aoc_solution(2023, 10, 2)
 def run_part2(filename):
-    print()
     start = _read_input(filename)
     path = []
     for orientation in orientations:
@@ -110,8 +109,6 @@ def run_part2(filename):
         if path is not None and len(path) > 0:
             break
     sections = _build_sections(path)
-    for section in sections:
-        print(f'{len(section)} = {section}')
     return _count_inside_sections(sections, path)
 
 
@@ -119,11 +116,9 @@ def _build_path(pipe: Pipe, orientation, path):
     if pipe.char == 'S' and len(path) != 0:
         return path
     if pipe.has_adj(orientation):
-        # print(f'pipe {pipe} has {orientation}')
         adj_x, adj_y = pipe.get_adj_coords(orientation)
         adj_pipe = _find_pipe(adj_x, adj_y)
         if adj_pipe is not None and adj_pipe.has_adj(reverse_of[orientation]):
-            # print(f'{adj_pipe} and next is {adj_pipe.next_orientation(reverse_of[orientation])}')
             path.add(pipe)
             return _build_path(adj_pipe, adj_pipe.next_orientation(reverse_of[orientation]), path)
     return None
@@ -158,26 +153,53 @@ def _build_section(current_pipe: Pipe, traversed_pipes, path):
 
 def _count_inside_sections(sections, path):
     count = 0
-    for section in sections:
-        current_pipe = section.pop()
-        if current_pipe.x == 0 or current_pipe.y == 0:
+    for i, section in enumerate(sections):
+        if _is_border_section(section):
             continue
-        else:
-            lefties = _count_number_of_path_to_the_left(current_pipe, path)
-            # print(f'Counting liefties for {current_pipe} = {lefties}')
-            if lefties > 0 and lefties % 2 != 0:
-                # print(f'Found inside section {section}')
-                count += len(section) + 1
+        current_pipe = section.pop()
+        sides = _count_left_parity(current_pipe, path)
+        if sides % 2 != 0:
+            count += len(section) + 1
     return count
 
 
-def _count_number_of_path_to_the_left(pipe: Pipe, path):
-    count = 0
-    y = pipe.y - 1
-    while y >= 0:
-        count = count + 1 if pipes[pipe.x][y] in path else count
-        y -= 1
-    return count
+def _count_left_parity(pipe: Pipe, path):
+    lefties = [pipe for pipe in pipes[pipe.x][:pipe.y] if pipe in path]
+
+    parity = 0
+    hold_pipe = None
+    for i in range(len(lefties)):
+        char = lefties[i].char
+        if char == '|':
+            parity += 1
+        elif char == 'F':
+            hold_pipe = 'F'
+        elif char == 'J':
+            if hold_pipe == 'F':
+                parity += 1
+                hold_pipe = None
+        elif char == 'L':
+            hold_pipe = 'L'
+        elif char == '7':
+            if hold_pipe == 'L':
+                parity += 1
+                hold_pipe = None
+    return parity
+
+
+def _is_border_section(section):
+    for pipe in section:
+        if pipe.y == 0 or pipe.y == len(pipes[0]) - 1 or pipe.x == 0 or pipe.x == len(pipes) - 1:
+            return True
+    return False
+
+
+def _print_section(section):
+    for pipeline in pipes:
+        string = ''
+        for pipe in pipeline:
+            string += 'X' if pipe in section else pipe.char
+        print(string)
 
 
 if __name__ == "__main__":
@@ -188,5 +210,5 @@ if __name__ == "__main__":
     run_part2("example_3.1.txt")  # 4
     run_part2("example_3.2.txt")  # 4
     run_part2("example_4.txt")  # 8
-    # run_part2("example_5.txt")  # 10
-    # run_part2("input.txt")
+    run_part2("example_5.txt")  # 10
+    run_part2("input.txt")

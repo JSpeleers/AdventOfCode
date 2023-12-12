@@ -1,8 +1,12 @@
 # Advent Of Code ⭐
 
+My Advent of Code submissions throughout the years.
+
+https://adventofcode.com/
+
 ### 2023
 
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=18&color=yellow)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=22&color=yellow)]()
 
 <details><summary>Stars for 2023</summary>
 <p>
@@ -18,8 +22,8 @@
 | 07 | ⭐ | ⭐ |
 | 08 | ⭐ | ⭐ |
 | 09 | ⭐ | ⭐ |
-| 10 | | |
-| 11 | | |
+| 10 | ⭐ | ⭐ |
+| 11 | ⭐ | ⭐ |
 | 12 | | |
 | 13 | | |
 | 14 | | |
