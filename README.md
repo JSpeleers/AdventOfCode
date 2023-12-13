@@ -6,7 +6,7 @@ https://adventofcode.com/
 
 ### 2023
 
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=22&color=yellow)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=25&color=yellow)]()
 
 <details><summary>Stars for 2023</summary>
 <p>
@@ -24,8 +24,8 @@ https://adventofcode.com/
 | 09 | ⭐ | ⭐ |
 | 10 | ⭐ | ⭐ |
 | 11 | ⭐ | ⭐ |
-| 12 | | |
-| 13 | | |
+| 12 | ⭐ | |
+| 13 | ⭐ | ⭐ |
 | 14 | | |
 | 15 | | |
 | 16 | | |
