@@ -3,6 +3,6 @@ def read_to_array(filename):
         return [line.strip() for line in file]
 
 
-def read_to_2d_array(filename):
+def read_to_2d_array(filename, _type=str):
     with open(filename) as file:
-        return [list(line.strip()) for line in file]
+        return [[_type(i) for i in line.strip()] for line in file]
