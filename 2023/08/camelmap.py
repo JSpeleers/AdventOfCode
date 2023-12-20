@@ -1,7 +1,5 @@
-from functools import reduce
-from math import gcd
-
 from util.decorators import aoc_solution, aoc_timed_solution
+from util.util import lcm
 
 instr_map = {'L': 0, 'R': 1}
 
@@ -52,10 +50,6 @@ def _traverse_multiplenodes_camelmap_lcm(camelmap, instructions):
 
 def _end_condition_p2(node):
     return node[-1] == 'Z'
-
-
-def lcm(denominators):
-    return reduce(lambda a, b: a * b // gcd(a, b), denominators)
 
 
 if __name__ == "__main__":
