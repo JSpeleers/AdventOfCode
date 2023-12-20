@@ -53,21 +53,20 @@ class WorkflowRule:
 
     def eval_range(self, ranged):  # Returns range_in, range_out
         if self.ops is None:
-            print(f'Returning full range')
+            # print(f'Returning full range')
             return (self.label, ranged), None
         if self.val in ranged[self.prop]:
-            print(f'{ranged} is part of {self}')
-            inside = [self.label,
-                      {
-                          self.prop: (range(ranged[self.prop][0], self.val)) if self.ops == lt else range(self.val, ranged[self.prop][-1] + 1)
-                      }]
+            # print(f'{ranged} is part of {self}')
+            inside = [
+                self.label,
+                {self.prop: range(ranged[self.prop][0], self.val) if self.ops == lt
+                else range(self.val, ranged[self.prop][-1] + 1)}
+            ]
             inside[1] = self._extend_others(inside[1], ranged)
-            outside = {self.prop: [
-                range(self.val, ranged[self.prop][-1] + 1) if self.ops == lt else range(ranged[self.prop][-1],
-                                                                                        self.val)]}
+            outside = {self.prop:
+                           range(self.val, ranged[self.prop][-1] + 1) if self.ops == lt
+                           else range(ranged[self.prop][-1], self.val)}
             outside = self._extend_others(outside, ranged)
-            print(f'Inside == {inside}')
-            print(f'Outside == {outside}')
             return inside, outside
         return None, ranged
 
@@ -88,17 +87,18 @@ class Workflow:
                 return res
 
     def eval_range(self, ranged):
-        ranges = []
+        i_ranges = []
         outside = ranged
+        print(f'Workflow {self.rules} processing range {outside}')
         for rule in self.rules:
-            print(rule)
+            print(f'Next rule is {rule}')
             if outside is not None:
                 inside, outside = rule.eval_range(ranged)
-                print(f'from rule {rule} got inside: {inside} and outside {outside}')
-                ranges.append(inside)
+                print(f'From rule {rule} got inside: {inside} and outside {outside}')
+                i_ranges.append(inside)
                 ranged = outside
-            print(f'Ranges are now {ranges}')
-        return ranges
+            print(f'Result is now {i_ranges} and remaining {outside}')
+        return i_ranges
 
 
 def _read_input(filename):
@@ -148,14 +148,22 @@ def _accepted_ranges(workflows: [Workflow], size=4000):
     while len(ranges) > 0:
         this_range = ranges.pop()
         res_ranges = workflows[this_range[0]].eval_range(this_range[1])
-        print('RESULT AFTER 1 WORKFLOW')
+        print('--- RESULT AFTER WORKFLOW ---')
         print(res_ranges)
-        exit()
+        print()
         for res_range in res_ranges:
             if res_range[0] == 'A' or res_range[0] == 'R':
                 finalised_ranges.append(res_range)
             else:
                 ranges.append(res_range)
+    print(finalised_ranges)
+    count = 0
+    for f_range in finalised_ranges:
+        if f_range[0] == 'A':
+            length = len(f_range[1]['x']) * len(f_range[1]['m']) * len(f_range[1]['a']) * len(f_range[1]['s'])
+            print(f'{f_range} = {length}')
+            count += length
+    return count
 
 
 if __name__ == "__main__":
