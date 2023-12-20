@@ -2,7 +2,7 @@
 
 My Advent of Code submissions throughout the years. (https://adventofcode.com/)
 
-I allow myself to look up strategies on Reddit but no not copy code.
+I allow myself to look up strategies on Reddit but do not copy code.
 
 ### 2023
 
