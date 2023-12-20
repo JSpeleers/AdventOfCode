@@ -6,7 +6,7 @@ I allow myself to look up strategies on Reddit but no not copy code.
 
 ### 2023
 
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=36&color=yellow)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=38&color=yellow)]()
 
 <details><summary>Stars for 2023</summary>
 <p>
@@ -32,7 +32,7 @@ I allow myself to look up strategies on Reddit but no not copy code.
 | 17 | | |
 | 18 | ⭐ | ⭐ |
 | 19 | ⭐ | ⭐ |
-| 20 | | |
+| 20 | ⭐ | ⭐ |
 | 21 | | |
 | 22 | | |
 | 23 | | |
