@@ -85,11 +85,11 @@ def _ext(o_ext, n_ext):  # TODO find loops and shorten ext
 if __name__ == "__main__":
     # run_part1("example_1.txt", 6)  # 16
     # run_part1("input.txt", 64)
-    # run_part2("example_1.txt", 6)  # 16
+    run_part2("example_1.txt", 6)  # 16
     run_part2("example_1.txt", 10)  # 50
-    run_part2("example_1.txt", 50)  # 1594
-    run_part2("example_1.txt", 100)  # 6536
-    run_part2("example_1.txt", 500)  # 167004
-    run_part2("example_1.txt", 1000)  # 668697
-    run_part2("example_1.txt", 5000)  # 16733044
+    # run_part2("example_1.txt", 50)  # 1594
+    # run_part2("example_1.txt", 100)  # 6536
+    # run_part2("example_1.txt", 500)  # 167004
+    # run_part2("example_1.txt", 1000)  # 668697
+    # run_part2("example_1.txt", 5000)  # 16733044
     run_part2("input.txt", 26501365)
