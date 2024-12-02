@@ -37,3 +37,7 @@ def get_neighbors_rc(matrix, row, col, _type='object'):
         except IndexError:
             pass
     return neighbors
+
+
+def transpose_2d(arr):
+    return [[arr[j][i] for j in range(len(arr))] for i in range(len(arr[0]))]

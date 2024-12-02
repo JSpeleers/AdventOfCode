@@ -3,13 +3,13 @@ from functools import cache
 import numpy as np
 
 from util.decorators import aoc_timed_solution
-from util.reader import read_to_2d_array
+from util.reader import read_strip_to_2d_array
 from util.util import MOVES, get_neighbors_p, MOVE_UP, MOVE_DOWN, MOVE_RIGHT, MOVE_LEFT
 
 
 @aoc_timed_solution(2023, 21, 1)
 def run_part1(filename, steps):
-    matrix = np.array(read_to_2d_array(filename))
+    matrix = np.array(read_strip_to_2d_array(filename))
     s = np.where(matrix == 'S')
     s_pos = s[0][0], s[1][0]
     return _traverse(matrix, s_pos, steps, _moves_from)
@@ -33,7 +33,7 @@ def _moves_from(matrix, poss):
 
 @aoc_timed_solution(2023, 21, 2)
 def run_part2(filename, steps):
-    matrix = np.array(read_to_2d_array(filename))
+    matrix = np.array(read_strip_to_2d_array(filename))
     s = np.where(matrix == 'S')
     s_pos = (s[0][0], s[1][0], (0, 0))
     return _traverse(matrix, s_pos, steps, _extended_moves_from)

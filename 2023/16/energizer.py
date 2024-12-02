@@ -1,7 +1,7 @@
 import sys
 
 from util.decorators import aoc_timed_solution
-from util.reader import read_to_2d_array
+from util.reader import read_strip_to_2d_array
 
 # Next X, next Y, coming from
 MOVE_UP = (0, -1, 'bottom')
@@ -21,7 +21,7 @@ char_map = {
 
 @aoc_timed_solution(2023, 16, 1)
 def run_part1(filename):
-    square = read_to_2d_array(filename)
+    square = read_strip_to_2d_array(filename)
     return _traverse(square, 0, 0, 'left', set())
 
 
@@ -56,7 +56,7 @@ def _print_square(square, this, traversed):
 
 @aoc_timed_solution(2023, 16, 2)
 def run_part2(filename):
-    square = read_to_2d_array(filename)
+    square = read_strip_to_2d_array(filename)
     all_traverses = [_traverse(square, x, y, cfrom, set()) for (y, x, cfrom) in _get_edges(square)]
     return max(all_traverses)
 

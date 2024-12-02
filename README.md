@@ -4,6 +4,21 @@ My Advent of Code submissions throughout the years. (https://adventofcode.com/)
 
 I allow myself to look up strategies on Reddit but do not copy code.
 
+### 2024
+
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=4&color=yellow)]()
+
+<details><summary>Stars for 2024</summary>
+<p>
+
+| day | part one | part two |
+|:--:| :------: | :------: |
+| 01 | ⭐ | ⭐ |
+| 02 | ⭐ | ⭐ |
+
+</p>
+</details>
+
 ### 2023
 
 [![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=40&color=yellow)]()

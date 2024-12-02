@@ -1,7 +1,7 @@
 import sys
 
 from util.decorators import aoc_timed_solution
-from util.reader import read_to_2d_array
+from util.reader import read_strip_to_2d_array
 
 # Next row, next col, moved to
 MOVE_UP = (-1, 0, 'up')
@@ -12,7 +12,7 @@ MOVE_RIGHT = (0, 1, 'right')
 
 @aoc_timed_solution(2023, 17, 1)
 def run_part1(filename):
-    matrix = read_to_2d_array(filename, int)
+    matrix = read_strip_to_2d_array(filename, int)
     start = (0, 0)
     end = (len(matrix) - 1, len(matrix[0]) - 1)
     return dfs_with_constraints(matrix, start, end, set(), 0, sys.maxsize, [])
