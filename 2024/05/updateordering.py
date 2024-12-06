@@ -64,7 +64,7 @@ def custom_sort(order_rules, update):
     return sorted(update, key=cmp_to_key(compare))
 
 
-@aoc_timed_solution(2024, 2, 2)
+@aoc_timed_solution(2024, 5, 2)
 def run_part2(filename):
     data = read_to_array(filename)
     doing_ordering_rules = True
