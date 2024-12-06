@@ -2,4 +2,5 @@ __pycache__/
 __pypackages__/
 
 .idea
-*.txt
+input*.txt
+ex*.txt
