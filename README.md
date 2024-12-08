@@ -1,12 +1,13 @@
 # Advent Of Code ⭐
 
-My Advent of Code submissions throughout the years. (https://adventofcode.com/)
+My Advent of Code submissions throughout the years.
 
-I allow myself to look up strategies on Reddit but do not copy code.
+https://adventofcode.com/
+
 
 ### 2024
 
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=10&color=yellow)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=16&color=yellow)]()
 
 
 ### 2023
