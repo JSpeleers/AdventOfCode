@@ -7,7 +7,7 @@ https://adventofcode.com/
 
 ### 2024
 
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=22&color=yellow)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=26&color=yellow)]()
 
 
 ### 2023
