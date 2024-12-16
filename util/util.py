@@ -12,6 +12,8 @@ MOVE_LEFT = (0, -1, 'left')
 MOVE_RIGHT = (0, 1, 'right')
 MOVES = [MOVE_UP, MOVE_DOWN, MOVE_RIGHT, MOVE_LEFT]
 
+SLIDES = {'>': MOVE_RIGHT, '<': MOVE_LEFT, 'v': MOVE_DOWN, '^': MOVE_UP}
+
 MOVE_UP_LEFT = (-1, -1, 'up-left')
 MOVE_UP_RIGHT = (-1, 1, 'up-right')
 MOVE_DOWN_LEFT = (1, -1, 'down-left')
@@ -41,6 +43,8 @@ def get_neighbors_rc(matrix, row, col, _type='object', include_diagonals=False):
                 neighbors.append(neighbor)
             elif _type == 'coords':
                 neighbors.append((new_row, new_col))
+            elif _type == 'coordsmove':
+                neighbors.append(((new_row, new_col), move))
             else:
                 raise ValueError(f'Invalid _type param "{_type}"')
         except IndexError:
@@ -64,3 +68,8 @@ def get_in_direction(matrix, row, col, row_diff, col_diff, amount):
 
 def transpose_2d(arr):
     return [[arr[j][i] for j in range(len(arr))] for i in range(len(arr[0]))]
+
+
+def pretty_print_2d(arr):
+    for r in arr:
+        print(''.join(r))

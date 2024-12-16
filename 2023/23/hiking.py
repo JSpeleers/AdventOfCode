@@ -1,15 +1,13 @@
 import sys
 
 from util.decorators import aoc_solution
-from util.reader import read_to_2d_array
-from util.util import get_neighbors_p, MOVE_RIGHT, MOVE_LEFT, MOVE_DOWN, MOVE_UP
-
-SLIDES = {'>': MOVE_RIGHT, '<': MOVE_LEFT, 'v': MOVE_DOWN, '^': MOVE_UP}
+from util.reader import read_strip_to_2d_array
+from util.util import get_neighbors_p, SLIDES
 
 
 @aoc_solution(2023, 23, 1)
 def run_part1(filename):
-    matrix = read_to_2d_array(filename)
+    matrix = read_strip_to_2d_array(filename)
     start = (0, matrix[0].index('.'))
     matrix[-1][matrix[-1].index('.')] = 'E'
     return _traverse(matrix, start, 0, set())
