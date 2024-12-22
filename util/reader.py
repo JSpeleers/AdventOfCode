@@ -1,6 +1,6 @@
-def read_to_array(filename):
+def read_to_array(filename, _type=str):
     with open(filename) as file:
-        return [line.strip() for line in file]
+        return [_type(line.strip()) for line in file]
 
 
 def read_strip_to_2d_array(filename, _type=str):
